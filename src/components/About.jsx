@@ -65,16 +65,14 @@ function About() {
 
 
 
-
           {/* LEFT CONTENT */}
-
 
 
           <motion.div
 
             initial={{
               opacity:0,
-              x:-80
+              x:-40
             }}
 
             whileInView={{
@@ -83,11 +81,13 @@ function About() {
             }}
 
             viewport={{
-              once:true
+              once:true,
+              amount:0.2
             }}
 
             transition={{
-              duration:0.8
+              duration:0.5,
+              ease:"easeOut"
             }}
 
           >
@@ -114,7 +114,7 @@ function About() {
                 mt-4
                 rounded-full
               "
-            ></div>
+            />
 
 
 
@@ -168,16 +168,15 @@ function About() {
 
 
 
-
             <motion.a
 
               whileHover={{
-                scale:1.05,
-                y:-3
+                scale:1.04,
+                y:-2
               }}
 
               whileTap={{
-                scale:0.95
+                scale:0.96
               }}
 
               href="/resume.pdf"
@@ -196,10 +195,10 @@ function About() {
                 px-7
                 py-3
                 rounded-xl
-                shadow-lg
-                shadow-blue-200
+                shadow-md
                 hover:bg-blue-700
-                transition-all
+                transition
+                duration-200
               "
 
             >
@@ -221,31 +220,35 @@ function About() {
 
 
 
-
-
           {/* STATS */}
 
 
 
           <motion.div
 
+
             initial={{
               opacity:0,
-              x:80
+              x:40
             }}
+
 
             whileInView={{
               opacity:1,
               x:0
             }}
 
+
             viewport={{
-              once:true
+              once:true,
+              amount:0.2
             }}
 
+
             transition={{
-              duration:0.8
+              duration:0.5
             }}
+
 
             className="
               grid
@@ -269,7 +272,7 @@ function About() {
 
                   initial={{
                     opacity:0,
-                    y:40
+                    y:20
                   }}
 
 
@@ -285,13 +288,14 @@ function About() {
 
 
                   transition={{
-                    delay:index*0.15
+                    duration:0.4,
+                    delay:index*0.08
                   }}
 
 
                   whileHover={{
-                    y:-12,
-                    scale:1.05
+                    y:-8,
+                    scale:1.03
                   }}
 
 
@@ -303,9 +307,11 @@ function About() {
                     border
                     border-gray-100
                     shadow-sm
-                    hover:shadow-2xl
+                    hover:shadow-xl
                     hover:shadow-blue-100
-                    transition-all
+                    transition-shadow
+                    duration-200
+                    will-change-transform
                   "
 
                 >
@@ -335,6 +341,7 @@ function About() {
 
 
 
+
                   <h3
                     className="
                       text-3xl
@@ -346,6 +353,7 @@ function About() {
                     {item.number}
 
                   </h3>
+
 
 
 

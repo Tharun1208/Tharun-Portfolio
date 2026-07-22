@@ -18,13 +18,14 @@ function Contact() {
 
     const form = useRef();
 
-    const [loading, setLoading] = useState(false);
+    const [loading,setLoading] = useState(false);
 
-    const [status, setStatus] = useState("");
+    const [status,setStatus] = useState("");
 
 
 
-    const sendEmail = (e) => {
+
+    const sendEmail = (e)=>{
 
         e.preventDefault();
 
@@ -38,338 +39,307 @@ function Contact() {
             "Ll5PRpBwenJErbzcC"
         )
 
-
-        .then(() => {
-
+        .then(()=>{
 
             setStatus("success");
 
             form.current.reset();
 
 
-            setTimeout(() => {
-
+            setTimeout(()=>{
                 setStatus("");
-
-            },5000);
+            },4000);
 
 
         })
 
 
-        .catch(() => {
-
+        .catch(()=>{
 
             setStatus("error");
 
 
-            setTimeout(() => {
-
+            setTimeout(()=>{
                 setStatus("");
-
-            },5000);
-
+            },4000);
 
         })
 
 
-        .finally(() => {
+        .finally(()=>{
 
             setLoading(false);
 
         });
-
 
     };
 
 
 
 
-    return (
 
-        <section
-            id="contact"
-            className="py-24 bg-gray-50"
-        >
+return (
 
+<section
+id="contact"
+className="py-24 bg-gray-50"
+>
 
-            <div className="container">
 
+<div className="container">
 
-                {/* Heading */}
 
+{/* Heading */}
 
-                <motion.div
+<motion.div
 
-                    initial={{
-                        opacity:0,
-                        y:-40
-                    }}
+initial={{
+opacity:0,
+y:20
+}}
 
-                    whileInView={{
-                        opacity:1,
-                        y:0
-                    }}
+whileInView={{
+opacity:1,
+y:0
+}}
 
-                    viewport={{
-                        once:true
-                    }}
+viewport={{
+once:true
+}}
 
-                    transition={{
-                        duration:0.7
-                    }}
+transition={{
+duration:0.4
+}}
 
-                    className="text-center"
+className="text-center"
 
-                >
+>
 
+<h2 className="
+text-4xl
+font-bold
+text-gray-900
+">
 
-                    <h2 className="
-                        text-4xl
-                        font-bold
-                        text-gray-900
-                    ">
+Contact Me
 
-                        Contact Me
+</h2>
 
-                    </h2>
 
+<p className="
+mt-4
+text-gray-500
+">
 
+Let's connect and build something amazing
 
-                    <p className="
-                        mt-4
-                        text-gray-500
-                    ">
+</p>
 
-                        Let's connect and build something amazing
 
-                    </p>
+</motion.div>
 
 
-                </motion.div>
 
 
 
 
+<div className="
+mt-12
+grid
+md:grid-cols-2
+gap-10
+">
 
 
-                <div className="
-                    mt-12
-                    grid
-                    md:grid-cols-2
-                    gap-10
-                ">
 
 
 
 
 
-                    {/* CONTACT INFORMATION */}
+{/* LEFT CARD */}
 
 
 
-                    <motion.div
+<motion.div
 
 
-                        initial={{
-                            opacity:0,
-                            x:-80
-                        }}
+initial={{
+opacity:0,
+x:-30
+}}
 
+whileInView={{
+opacity:1,
+x:0
+}}
 
-                        whileInView={{
-                            opacity:1,
-                            x:0
-                        }}
+viewport={{
+once:true
+}}
 
+transition={{
+duration:0.5
+}}
 
-                        viewport={{
-                            once:true
-                        }}
 
+whileHover={{
+y:-5
+}}
 
-                        transition={{
-                            duration:0.8
-                        }}
 
+className="
+bg-white
+p-8
+rounded-xl
+shadow-md
+hover:shadow-xl
+transition
+duration-200
+"
 
-                        whileHover={{
-                            y:-10
-                        }}
 
+>
 
-                        className="
-                            bg-white
-                            p-8
-                            rounded-xl
-                            shadow-sm
-                            hover:shadow-2xl
-                            transition-all
-                            duration-300
-                        "
 
-                    >
 
+<h3 className="
+text-2xl
+font-bold
+text-gray-900
+">
 
+Get In Touch
 
-                        <h3 className="
-                            text-2xl
-                            font-bold
-                            text-gray-900
-                        ">
+</h3>
 
-                            Get In Touch
 
-                        </h3>
 
+<p className="
+mt-4
+text-gray-600
+leading-7
+">
 
+I am interested in software development opportunities,
+internships, and collaborative projects.
 
+</p>
 
-                        <p className="
-                            mt-4
-                            text-gray-600
-                            leading-7
-                        ">
 
-                            I am interested in software development opportunities,
-                            internships, and collaborative projects.
 
-                        </p>
 
 
 
+<div className="
+mt-6
+space-y-4
+">
 
 
-                        <div className="
-                            mt-6
-                            space-y-4
-                        ">
+<a
+href="mailto:tharunhs1208@gmail.com"
+className="
+flex
+items-center
+gap-3
+hover:text-blue-600
+transition
+"
+>
 
+<FiMail className="text-blue-600"/>
 
+tharunhs1208@gmail.com
 
-                            <a
-                                href="mailto:tharunhs1208@gmail.com"
-                                className="
-                                    flex
-                                    items-center
-                                    gap-3
-                                    text-gray-700
-                                    hover:text-blue-600
-                                    hover:translate-x-2
-                                    transition-all
-                                "
-                            >
+</a>
 
-                                <FiMail
-                                    size={22}
-                                    className="text-blue-600"
-                                />
 
-                                tharunhs1208@gmail.com
 
-                            </a>
 
 
+<a
+href="https://github.com/Tharun1208"
+target="_blank"
+rel="noopener noreferrer"
+className="
+flex
+items-center
+gap-3
+hover:text-blue-600
+transition
+"
+>
 
+<FiGithub className="text-blue-600"/>
 
-                            <a
-                                href="https://github.com/Tharun1208"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="
-                                    flex
-                                    items-center
-                                    gap-3
-                                    text-gray-700
-                                    hover:text-blue-600
-                                    hover:translate-x-2
-                                    transition-all
-                                "
-                            >
+GitHub Profile
 
-                                <FiGithub
-                                    size={22}
-                                    className="text-blue-600"
-                                />
+</a>
 
-                                GitHub Profile
 
-                            </a>
 
 
 
+<a
+href="https://www.linkedin.com/in/tharun-h-s-8590062a7/"
+target="_blank"
+rel="noopener noreferrer"
+className="
+flex
+items-center
+gap-3
+hover:text-blue-600
+transition
+"
+>
 
+<FiLinkedin className="text-blue-600"/>
 
-                            <a
-                                href="https://www.linkedin.com/in/tharun-h-s-8590062a7/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="
-                                    flex
-                                    items-center
-                                    gap-3
-                                    text-gray-700
-                                    hover:text-blue-600
-                                    hover:translate-x-2
-                                    transition-all
-                                "
-                            >
+LinkedIn Profile
 
-                                <FiLinkedin
-                                    size={22}
-                                    className="text-blue-600"
-                                />
+</a>
 
-                                LinkedIn Profile
 
-                            </a>
+</div>
 
 
 
-                        </div>
 
 
 
 
+<a
 
+href="/resume.pdf"
 
-                        <a
-                            href="/resume.pdf"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="
-                                mt-8
-                                inline-flex
-                                items-center
-                                gap-2
-                                bg-blue-600
-                                text-white
-                                px-6
-                                py-3
-                                rounded-lg
-                                
-                                shadow-lg
-                                shadow-blue-200
+target="_blank"
 
-                                hover:bg-blue-700
-                                hover:scale-105
-                                hover:-translate-y-1
+className="
+mt-8
+inline-flex
+items-center
+gap-2
+bg-blue-600
+text-white
+px-6
+py-3
+rounded-lg
+hover:bg-blue-700
+transition
+"
 
-                                transition-all
-                                duration-300
-                            "
-                        >
+>
 
-                            <FiFileText/>
+<FiFileText/>
 
-                            View Resume
+View Resume
 
-                        </a>
 
+</a>
 
 
-                    </motion.div>
 
+</motion.div>
 
 
 
@@ -378,356 +348,299 @@ function Contact() {
 
 
 
-                    {/* FORM */}
 
+{/* FORM CARD */}
 
 
 
+<motion.div
 
-                    <motion.div
 
+initial={{
+opacity:0,
+x:30
+}}
 
-                        initial={{
-                            opacity:0,
-                            x:80
-                        }}
+whileInView={{
+opacity:1,
+x:0
+}}
 
+viewport={{
+once:true
+}}
 
-                        whileInView={{
-                            opacity:1,
-                            x:0
-                        }}
+transition={{
+duration:0.5
+}}
 
 
-                        viewport={{
-                            once:true
-                        }}
+whileHover={{
+y:-5
+}}
 
 
-                        transition={{
-                            duration:0.8
-                        }}
 
+className="
+bg-white
+p-8
+rounded-xl
+shadow-md
+hover:shadow-xl
+transition
+duration-200
+"
 
-                        whileHover={{
-                            y:-10
-                        }}
 
+>
 
 
-                        className="
-                            bg-white
-                            p-8
-                            rounded-xl
-                            shadow-sm
-                            hover:shadow-2xl
-                            transition-all
-                            duration-300
-                        "
+<h3 className="
+text-2xl
+font-bold
+text-gray-900
+">
 
-                    >
+Send Message
 
+</h3>
 
 
-                        <h3 className="
-                            text-2xl
-                            font-bold
-                            text-gray-900
-                        ">
 
-                            Send Message
 
-                        </h3>
 
 
+<AnimatePresence>
 
 
+{
+status==="success" &&
 
+<motion.div
 
-                        <AnimatePresence>
+initial={{
+opacity:0,
+scale:0.9
+}}
 
+animate={{
+opacity:1,
+scale:1
+}}
 
-                            {
-                                status==="success" &&
+className="
+mt-5
+p-4
+rounded-lg
+bg-green-100
+text-green-700
+flex
+gap-3
+items-center
+"
 
-                                <motion.div
+>
 
-                                    initial={{
-                                        opacity:0,
-                                        scale:0.8,
-                                        y:-20
-                                    }}
+<FiCheckCircle/>
 
-                                    animate={{
-                                        opacity:1,
-                                        scale:1,
-                                        y:0
-                                    }}
+Message Sent Successfully!
 
-                                    exit={{
-                                        opacity:0
-                                    }}
+</motion.div>
 
-                                    className="
-                                        mt-5
-                                        p-5
-                                        rounded-xl
-                                        bg-green-100
-                                        border
-                                        border-green-300
-                                        text-green-700
-                                        flex
-                                        gap-3
-                                        items-center
-                                        shadow-md
-                                    "
 
-                                >
+}
 
-                                    <FiCheckCircle
-                                        size={30}
-                                    />
 
-                                    <div>
 
-                                        <h4 className="font-bold">
-                                            Message Sent Successfully!
-                                        </h4>
+</AnimatePresence>
 
-                                        <p className="text-sm">
-                                            Thank you for contacting me.
-                                            I will reply soon.
-                                        </p>
 
-                                    </div>
 
 
-                                </motion.div>
 
-                            }
 
+{
+status==="error" &&
 
-                        </AnimatePresence>
+<div
+className="
+mt-5
+p-4
+rounded-lg
+bg-red-100
+text-red-700
+flex
+gap-3
+items-center
+"
+>
 
+<FiAlertCircle/>
 
+Message Failed
 
+</div>
 
+}
 
 
-                        {
-                            status==="error" &&
 
-                            <motion.div
 
-                                initial={{
-                                    opacity:0,
-                                    x:50
-                                }}
 
-                                animate={{
-                                    opacity:1,
-                                    x:0
-                                }}
 
-                                className="
-                                    mt-5
-                                    p-5
-                                    rounded-xl
-                                    bg-red-100
-                                    border
-                                    border-red-300
-                                    text-red-700
-                                    flex
-                                    gap-3
-                                    items-center
-                                "
+<form
 
-                            >
+ref={form}
 
-                                <FiAlertCircle size={30}/>
+onSubmit={sendEmail}
 
+className="
+mt-6
+space-y-4
+"
 
-                                <div>
+>
 
-                                    <h4 className="font-bold">
-                                        Message Failed
-                                    </h4>
 
-                                    <p>
-                                        Please try again.
-                                    </p>
+<input
 
-                                </div>
+name="name"
 
+required
 
-                            </motion.div>
+placeholder="Your Name"
 
-                        }
+className="
+w-full
+border
+p-3
+rounded-lg
+focus:ring-2
+focus:ring-blue-500
+outline-none
+"
 
+/>
 
 
 
+<input
 
+name="email"
 
+type="email"
 
-                        <form
-                            ref={form}
-                            onSubmit={sendEmail}
-                            className="
-                                mt-6
-                                space-y-4
-                            "
-                        >
+required
 
+placeholder="Your Email"
 
+className="
+w-full
+border
+p-3
+rounded-lg
+focus:ring-2
+focus:ring-blue-500
+outline-none
+"
 
-                            <input
-                                name="name"
-                                required
-                                placeholder="Your Name"
-                                className="
-                                    w-full
-                                    border
-                                    p-3
-                                    rounded-lg
-                                    outline-none
+/>
 
-                                    hover:border-blue-400
 
-                                    focus:ring-2
-                                    focus:ring-blue-500
 
-                                    transition
-                                "
-                            />
 
+<textarea
 
+name="message"
 
+rows="5"
 
-                            <input
-                                name="email"
-                                type="email"
-                                required
-                                placeholder="Your Email"
-                                className="
-                                    w-full
-                                    border
-                                    p-3
-                                    rounded-lg
-                                    outline-none
+required
 
-                                    hover:border-blue-400
+placeholder="Your Message"
 
-                                    focus:ring-2
-                                    focus:ring-blue-500
+className="
+w-full
+border
+p-3
+rounded-lg
+focus:ring-2
+focus:ring-blue-500
+outline-none
+"
 
-                                    transition
-                                "
-                            />
+/>
 
 
 
 
 
-                            <textarea
-                                name="message"
-                                rows="5"
-                                required
-                                placeholder="Your Message"
-                                className="
-                                    w-full
-                                    border
-                                    p-3
-                                    rounded-lg
-                                    outline-none
+<motion.button
 
-                                    hover:border-blue-400
+whileHover={{
+scale:1.05
+}}
 
-                                    focus:ring-2
-                                    focus:ring-blue-500
+whileTap={{
+scale:0.95
+}}
 
-                                    transition
-                                "
-                            />
+disabled={loading}
 
+className="
+flex
+items-center
+gap-2
+bg-blue-600
+text-white
+px-6
+py-3
+rounded-lg
+hover:bg-blue-700
+transition
+"
 
+>
 
 
+<FiSend/>
 
 
-                            <motion.button
+{
+loading
+?
+"Sending..."
+:
+"Send Message"
+}
 
-                                whileHover={{
-                                    scale:1.1,
-                                    y:-3
-                                }}
 
-                                whileTap={{
-                                    scale:0.95
-                                }}
+</motion.button>
 
-                                disabled={loading}
 
-                                className="
-                                    flex
-                                    items-center
-                                    gap-2
 
-                                    bg-blue-600
-                                    text-white
+</form>
 
-                                    px-6
-                                    py-3
 
-                                    rounded-lg
 
-                                    shadow-lg
-                                    shadow-blue-200
+</motion.div>
 
-                                    hover:bg-blue-700
 
-                                    transition-all
 
-                                    disabled:opacity-50
-                                "
 
-                            >
 
-                                <FiSend/>
+</div>
 
 
-                                {
-                                    loading
-                                    ?
-                                    "Sending..."
-                                    :
-                                    "Send Message"
-                                }
 
+</div>
 
-                            </motion.button>
 
+</section>
 
 
-                        </form>
+);
 
-
-
-                    </motion.div>
-
-
-
-
-                </div>
-
-
-            </div>
-
-
-        </section>
-
-
-    );
 
 }
 

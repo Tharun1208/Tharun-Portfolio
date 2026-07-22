@@ -5,114 +5,107 @@ import { FiBookOpen } from "react-icons/fi";
 function Education() {
 
 
-  const education = [
+const education = [
 
-    {
-      degree: "Bachelor of Engineering (B.E) - Computer Science",
-      college: "Garden City University",
-      duration: "2023 - Present",
-      details:
-        "Currently pursuing Computer Science Engineering with focus on Full Stack Development, Artificial Intelligence, Data Structures, and Software Engineering."
-    },
+{
+degree:"Bachelor of Engineering (B.E) - Computer Science",
+college:"Garden City University",
+duration:"2023 - Present",
+details:
+"Currently pursuing Computer Science Engineering with focus on Full Stack Development, Artificial Intelligence, Data Structures, and Software Engineering."
+},
 
 
-    {
-      degree: "Pre-University Education",
-      college: "Jnana Bharathi PU College",
-      duration: "2021 - 2023",
-      details:
-        "Completed higher secondary education with a strong foundation in mathematics, science, logical thinking, and programming concepts."
-    },
+{
+degree:"Pre-University Education",
+college:"Jnana Bharathi PU College",
+duration:"2021 - 2023",
+details:
+"Completed higher secondary education with a strong foundation in mathematics, science, logical thinking, and programming concepts."
+},
 
 
-    {
-      degree: "Secondary Education",
-      college: "Morarji Desai Residential School",
-      duration: "Completed",
-      details:
-        "Built strong fundamentals in mathematics, science, communication skills, and problem-solving abilities."
-    }
+{
+degree:"Secondary Education",
+college:"Morarji Desai Residential School",
+duration:"Completed",
+details:
+"Built strong fundamentals in mathematics, science, communication skills, and problem-solving abilities."
+}
 
-  ];
+];
 
 
 
 
-  return (
+return (
 
+<section
+id="education"
+className="py-24 bg-white"
+>
 
-    <section
-      id="education"
-      className="
-        py-24
-        bg-white
-      "
-    >
 
+<div className="container">
 
 
-      <div className="container">
 
 
 
+{/* TITLE */}
 
 
-        {/* Heading */}
+<motion.div
 
+initial={{
+opacity:0,
+y:20
+}}
 
-        <motion.div
+whileInView={{
+opacity:1,
+y:0
+}}
 
-          initial={{
-            opacity:0,
-            y:-30
-          }}
+viewport={{
+once:true
+}}
 
-          whileInView={{
-            opacity:1,
-            y:0
-          }}
+transition={{
+duration:0.4
+}}
 
-          viewport={{
-            once:true
-          }}
+className="text-center"
 
-          transition={{
-            duration:0.6
-          }}
+>
 
-          className="text-center"
 
-        >
+<h2 className="
+text-4xl
+font-bold
+text-gray-900
+">
 
+Education
 
-          <h2
-            className="
-              text-4xl
-              font-bold
-              text-gray-900
-            "
-          >
+</h2>
 
-            Education
 
-          </h2>
 
+<p className="
+mt-4
+text-gray-500
+">
 
+Academic background and learning journey
 
-          <p
-            className="
-              mt-4
-              text-gray-500
-            "
-          >
+</p>
 
-            Academic background and learning journey
 
-          </p>
 
+</motion.div>
 
 
-        </motion.div>
 
 
 
@@ -120,248 +113,216 @@ function Education() {
 
 
 
+{/* CARDS */}
 
 
-        {/* Education Cards */}
 
+<div
+className="
+mt-12
+grid
+md:grid-cols-2
+lg:grid-cols-3
+gap-8
+"
+>
 
 
-        <div
-          className="
-            mt-12
-            grid
-            md:grid-cols-2
-            lg:grid-cols-3
-            gap-8
-          "
-        >
+{
 
+education.map((item,index)=>(
 
 
 
-        {
+<motion.div
 
-          education.map((item,index)=>(
 
+key={index}
 
 
-            <motion.div
 
+initial={{
+opacity:0,
+y:30
+}}
 
-              key={index}
 
+whileInView={{
+opacity:1,
+y:0
+}}
 
 
-              initial={{
-                opacity:0,
-                y:50
-              }}
+viewport={{
+once:true
+}}
 
 
+transition={{
+duration:0.4,
+delay:index*0.1
+}}
 
-              whileInView={{
-                opacity:1,
-                y:0
-              }}
 
 
+whileHover={{
+y:-8
+}}
 
-              viewport={{
-                once:true
-              }}
 
 
+className="
+bg-gray-50
+p-6
+rounded-xl
+border
+border-gray-100
+hover:border-blue-200
+hover:shadow-lg
+transition-shadow
+duration-200
+"
 
-              transition={{
-                duration:0.6,
-                delay:index*0.2
-              }}
+>
 
 
 
 
-              whileHover={{
-                y:-10,
-                scale:1.03
-              }}
+{/* ICON */}
 
 
+<motion.div
 
+whileHover={{
+scale:1.1
+}}
 
-              className="
-                bg-gray-50
-                p-6
-                rounded-xl
-                border
-                border-transparent
-                hover:border-blue-200
-                hover:shadow-xl
-                transition-all
-                duration-300
-              "
+className="
+w-12
+h-12
+flex
+items-center
+justify-center
+rounded-full
+bg-blue-100
+text-blue-600
+mb-5
+"
 
+>
 
-            >
+<FiBookOpen size={24}/>
 
+</motion.div>
 
 
 
 
 
-              {/* Icon */}
 
 
+<h3
+className="
+text-xl
+font-bold
+text-gray-900
+"
+>
 
-              <div
-                className="
-                  w-12
-                  h-12
-                  flex
-                  items-center
-                  justify-center
-                  rounded-full
-                  bg-blue-100
-                  text-blue-600
-                  mb-5
-                  hover:bg-blue-600
-                  hover:text-white
-                  transition
-                "
-              >
+{item.degree}
 
-                <FiBookOpen size={24}/>
+</h3>
 
 
-              </div>
 
 
 
 
 
+<p
+className="
+mt-3
+text-blue-600
+font-medium
+"
+>
 
+{item.college}
 
+</p>
 
 
-              <h3
 
-                className="
-                  text-xl
-                  font-bold
-                  text-gray-900
-                "
 
-              >
 
-                {item.degree}
 
-              </h3>
 
+<span
+className="
+inline-block
+mt-3
+px-3
+py-1
+rounded-full
+text-sm
+bg-blue-50
+text-blue-600
+"
+>
 
+{item.duration}
 
+</span>
 
 
 
 
-              <p
 
-                className="
-                  mt-3
-                  text-blue-600
-                  font-medium
-                "
 
-              >
 
-                {item.college}
+<p
+className="
+mt-4
+text-gray-600
+leading-7
+"
+>
 
-              </p>
+{item.details}
 
+</p>
 
 
 
 
 
 
+</motion.div>
 
 
-              <span
 
-                className="
-                  inline-block
-                  mt-3
-                  px-3
-                  py-1
-                  rounded-full
-                  text-sm
-                  bg-blue-50
-                  text-blue-600
-                  hover:bg-blue-600
-                  hover:text-white
-                  transition
-                "
-
-              >
-
-                {item.duration}
-
-              </span>
-
-
-
-
-
-
-
-
-
-              <p
-
-                className="
-                  mt-4
-                  text-gray-600
-                  leading-7
-                "
-
-              >
-
-                {item.details}
-
-              </p>
-
-
-
-
-
-            </motion.div>
-
-
-
-          ))
-
-        }
-
-
-
-
-
-        </div>
-
-
-
-
-
-
-      </div>
-
-
-
-    </section>
-
-
-  );
+))
 
 }
 
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+</section>
+
+
+);
+
+
+}
 
 
 export default Education;

@@ -25,7 +25,7 @@ function Footer() {
 
         initial={{
           opacity:0,
-          y:40
+          y:20
         }}
 
         whileInView={{
@@ -34,11 +34,12 @@ function Footer() {
         }}
 
         viewport={{
-          once:true
+          once:true,
+          amount:0.2
         }}
 
         transition={{
-          duration:0.8
+          duration:0.4
         }}
 
         className="
@@ -50,12 +51,8 @@ function Footer() {
 
 
 
+        <p className="text-gray-500">
 
-        <p
-          className="
-            text-gray-500
-          "
-        >
 
           © 2026{" "}
 
@@ -63,15 +60,7 @@ function Footer() {
           <span
             className="
               font-bold
-              bg-gradient-to-r
-              from-blue-600
-              to-purple-600
-              bg-clip-text
-              text-transparent
-
-              hover:scale-110
-              inline-block
-              transition
+              text-blue-600
             "
           >
 
@@ -84,8 +73,6 @@ function Footer() {
 
 
         </p>
-
-
 
 
 
@@ -106,11 +93,6 @@ function Footer() {
 
 
 
-
-
-        {/* Social Links */}
-
-
         <div
           className="
             flex
@@ -123,59 +105,53 @@ function Footer() {
 
 
           <a
+
             href="https://github.com/Tharun1208"
+
             target="_blank"
+
             rel="noopener noreferrer"
 
             className="
               text-gray-500
-
               hover:text-blue-600
-
               hover:-translate-y-1
-
-              hover:scale-125
-
-              transition-all
-              duration-300
+              transition-transform
+              duration-200
             "
+
           >
 
-            <FiGithub
-              size={24}
-            />
+            <FiGithub size={24}/>
 
           </a>
+
 
 
 
 
 
           <a
+
             href="https://www.linkedin.com/in/tharun-h-s-8590062a7/"
+
             target="_blank"
+
             rel="noopener noreferrer"
 
             className="
               text-gray-500
-
               hover:text-blue-600
-
               hover:-translate-y-1
-
-              hover:scale-125
-
-              transition-all
-              duration-300
+              transition-transform
+              duration-200
             "
+
           >
 
-            <FiLinkedin
-              size={24}
-            />
+            <FiLinkedin size={24}/>
 
           </a>
-
 
 
 
@@ -185,21 +161,7 @@ function Footer() {
 
 
 
-
-
-        <motion.p
-
-          initial={{
-            opacity:0
-          }}
-
-          whileInView={{
-            opacity:1
-          }}
-
-          transition={{
-            delay:0.3
-          }}
+        <p
 
           className="
             mt-6
@@ -211,7 +173,7 @@ function Footer() {
 
           Designed & Developed by Tharun 🚀
 
-        </motion.p>
+        </p>
 
 
 
