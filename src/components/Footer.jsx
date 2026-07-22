@@ -24,22 +24,22 @@ function Footer() {
       <motion.div
 
         initial={{
-          opacity:0,
-          y:20
+          opacity: 0,
+          y: 20
         }}
 
         whileInView={{
-          opacity:1,
-          y:0
+          opacity: 1,
+          y: 0
         }}
 
         viewport={{
-          once:true,
-          amount:0.2
+          once: true,
+          amount: 0.2
         }}
 
         transition={{
-          duration:0.4
+          duration: 0.4
         }}
 
         className="
@@ -122,7 +122,7 @@ function Footer() {
 
           >
 
-            <FiGithub size={24}/>
+            <FiGithub size={24} />
 
           </a>
 
@@ -149,7 +149,7 @@ function Footer() {
 
           >
 
-            <FiLinkedin size={24}/>
+            <FiLinkedin size={24} />
 
           </a>
 

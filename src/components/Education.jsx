@@ -5,107 +5,105 @@ import { FiBookOpen } from "react-icons/fi";
 function Education() {
 
 
-const education = [
+    const education = [
 
-{
-degree:"Bachelor of Engineering (B.E) - Computer Science",
-college:"Garden City University",
-duration:"2023 - Present",
-details:
-"Currently pursuing Computer Science Engineering with focus on Full Stack Development, Artificial Intelligence, Data Structures, and Software Engineering."
-},
-
-
-{
-degree:"Pre-University Education",
-college:"Jnana Bharathi PU College",
-duration:"2021 - 2023",
-details:
-"Completed higher secondary education with a strong foundation in mathematics, science, logical thinking, and programming concepts."
-},
+        {
+            degree: "Bachelor of Engineering (B.E) - Computer Science",
+            college: "Garden City University",
+            duration: "2023 - Present",
+            details:
+                "Currently pursuing Computer Science Engineering with focus on Full Stack Development, Artificial Intelligence, Data Structures, and Software Engineering."
+        },
 
 
-{
-degree:"Secondary Education",
-college:"Morarji Desai Residential School",
-duration:"Completed",
-details:
-"Built strong fundamentals in mathematics, science, communication skills, and problem-solving abilities."
-}
-
-];
+        {
+            degree: "Pre-University Education",
+            college: "Jnana Bharathi PU College",
+            duration: "2021 - 2023",
+            details:
+                "Completed higher secondary education with a strong foundation in mathematics, science, logical thinking, and programming concepts."
+        },
 
 
+        {
+            degree: "Secondary Education",
+            college: "Morarji Desai Residential School",
+            duration: "Completed",
+            details:
+                "Built strong fundamentals in mathematics, science, communication skills, and problem-solving abilities."
+        }
 
-
-return (
-
-<section
-id="education"
-className="py-24 bg-white"
->
-
-
-<div className="container">
+    ];
 
 
 
 
+    return (
 
-{/* TITLE */}
-
-
-<motion.div
-
-initial={{
-opacity:0,
-y:20
-}}
-
-whileInView={{
-opacity:1,
-y:0
-}}
-
-viewport={{
-once:true
-}}
-
-transition={{
-duration:0.4
-}}
-
-className="text-center"
-
->
+        <section
+            id="education"
+            className="py-24 bg-white"
+        >
 
 
-<h2 className="
+            <div className="container">
+
+
+
+
+
+                {/* TITLE */}
+
+
+                <motion.div
+
+                    initial={{
+                        opacity: 0,
+                        y: 20
+                    }}
+
+                    whileInView={{
+                        opacity: 1,
+                        y: 0
+                    }}
+
+                    viewport={{
+                        once: true
+                    }}
+
+                    transition={{
+                        duration: 0.4
+                    }}
+
+                    className="text-center"
+
+                >
+
+
+                    <h2 className="
 text-4xl
 font-bold
 text-gray-900
 ">
 
-Education
+                        Education
 
-</h2>
+                    </h2>
 
 
 
-<p className="
+                    <p className="
 mt-4
 text-gray-500
 ">
 
-Academic background and learning journey
+                        Academic background and learning journey
 
-</p>
-
-
-
-</motion.div>
+                    </p>
 
 
+
+                </motion.div>
 
 
 
@@ -113,65 +111,67 @@ Academic background and learning journey
 
 
 
-{/* CARDS */}
+
+
+                {/* CARDS */}
 
 
 
-<div
-className="
+                <div
+                    className="
 mt-12
 grid
 md:grid-cols-2
 lg:grid-cols-3
 gap-8
 "
->
+                >
 
 
-{
+                    {
 
-education.map((item,index)=>(
-
-
-
-<motion.div
-
-
-key={index}
+                        education.map((item, index) => (
 
 
 
-initial={{
-opacity:0,
-y:30
-}}
+                            <motion.div
 
 
-whileInView={{
-opacity:1,
-y:0
-}}
-
-
-viewport={{
-once:true
-}}
-
-
-transition={{
-duration:0.4,
-delay:index*0.1
-}}
+                                key={index}
 
 
 
-whileHover={{
-y:-8
-}}
+                                initial={{
+                                    opacity: 0,
+                                    y: 30
+                                }}
+
+
+                                whileInView={{
+                                    opacity: 1,
+                                    y: 0
+                                }}
+
+
+                                viewport={{
+                                    once: true
+                                }}
+
+
+                                transition={{
+                                    duration: 0.4,
+                                    delay: index * 0.1
+                                }}
 
 
 
-className="
+                                whileHover={{
+                                    y: -8
+                                }}
+
+
+
+                                className="
 bg-gray-50
 p-6
 rounded-xl
@@ -183,21 +183,21 @@ transition-shadow
 duration-200
 "
 
->
+                            >
 
 
 
 
-{/* ICON */}
+                                {/* ICON */}
 
 
-<motion.div
+                                <motion.div
 
-whileHover={{
-scale:1.1
-}}
+                                    whileHover={{
+                                        scale: 1.1
+                                    }}
 
-className="
+                                    className="
 w-12
 h-12
 flex
@@ -209,56 +209,56 @@ text-blue-600
 mb-5
 "
 
->
+                                >
 
-<FiBookOpen size={24}/>
+                                    <FiBookOpen size={24} />
 
-</motion.div>
-
-
+                                </motion.div>
 
 
 
 
 
-<h3
-className="
+
+
+                                <h3
+                                    className="
 text-xl
 font-bold
 text-gray-900
 "
->
+                                >
 
-{item.degree}
+                                    {item.degree}
 
-</h3>
-
-
+                                </h3>
 
 
 
 
 
-<p
-className="
+
+
+                                <p
+                                    className="
 mt-3
 text-blue-600
 font-medium
 "
->
+                                >
 
-{item.college}
+                                    {item.college}
 
-</p>
-
-
+                                </p>
 
 
 
 
 
-<span
-className="
+
+
+                                <span
+                                    className="
 inline-block
 mt-3
 px-3
@@ -268,58 +268,58 @@ text-sm
 bg-blue-50
 text-blue-600
 "
->
+                                >
 
-{item.duration}
+                                    {item.duration}
 
-</span>
-
-
+                                </span>
 
 
 
 
 
-<p
-className="
+
+
+                                <p
+                                    className="
 mt-4
 text-gray-600
 leading-7
 "
->
+                                >
 
-{item.details}
+                                    {item.details}
 
-</p>
-
-
-
-
-
-
-</motion.div>
-
-
-
-))
-
-}
-
-
-
-</div>
+                                </p>
 
 
 
 
 
-</div>
+
+                            </motion.div>
 
 
-</section>
+
+                        ))
+
+                    }
 
 
-);
+
+                </div>
+
+
+
+
+
+            </div>
+
+
+        </section>
+
+
+    );
 
 
 }

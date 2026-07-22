@@ -7,13 +7,18 @@ import {
   FiZap
 } from "react-icons/fi";
 
+import { motion } from "framer-motion";
+
+
 
 const skillGroups = [
 
   {
-    title:"Frontend Development",
-    icon:<FiCode/>,
-    skills:[
+    title: "Frontend Development",
+
+    icon: <FiCode />,
+
+    skills: [
       "HTML5",
       "CSS3",
       "JavaScript",
@@ -24,9 +29,11 @@ const skillGroups = [
 
 
   {
-    title:"Backend Development",
-    icon:<FiServer/>,
-    skills:[
+    title: "Backend Development",
+
+    icon: <FiServer />,
+
+    skills: [
       "Node.js",
       "Express.js",
       "REST API",
@@ -36,9 +43,11 @@ const skillGroups = [
 
 
   {
-    title:"Database",
-    icon:<FiDatabase/>,
-    skills:[
+    title: "Database",
+
+    icon: <FiDatabase />,
+
+    skills: [
       "MongoDB",
       "MySQL"
     ]
@@ -46,9 +55,11 @@ const skillGroups = [
 
 
   {
-    title:"Programming Languages",
-    icon:<FiCpu/>,
-    skills:[
+    title: "Programming Languages",
+
+    icon: <FiCpu />,
+
+    skills: [
       "Java",
       "Python",
       "JavaScript"
@@ -57,9 +68,11 @@ const skillGroups = [
 
 
   {
-    title:"Tools & Technologies",
-    icon:<FiTool/>,
-    skills:[
+    title: "Tools & Technologies",
+
+    icon: <FiTool />,
+
+    skills: [
       "Git",
       "GitHub",
       "VS Code",
@@ -70,9 +83,11 @@ const skillGroups = [
 
 
   {
-    title:"Other Skills",
-    icon:<FiZap/>,
-    skills:[
+    title: "Other Skills",
+
+    icon: <FiZap />,
+
+    skills: [
       "Data Structures",
       "Problem Solving",
       "API Integration",
@@ -87,262 +102,463 @@ const skillGroups = [
 
 
 
-function Skills(){
+function Skills() {
 
 
-return(
+  return (
 
 
-<section
-id="skills"
-className="
-py-24
-bg-gray-50
-"
->
+    <section
+      id="skills"
+      className="
+        py-24
+        bg-gray-50
+      "
+    >
 
 
-<div className="container">
 
+      <div className="container">
 
 
-<div className="text-center">
 
 
-<h2
-className="
-text-4xl
-font-bold
-gradient-text
-"
->
 
-Technical Skills
+        {/* Heading */}
 
-</h2>
 
+        <motion.div
 
 
-<p
-className="
-mt-4
-text-gray-500
-text-lg
-"
->
+          initial={{
+            opacity: 0,
+            y: -30
+          }}
 
-Technologies and tools I work with
 
-</p>
+          whileInView={{
+            opacity: 1,
+            y: 0
+          }}
 
 
-</div>
+          viewport={{
+            once: true
+          }}
 
 
+          transition={{
+            duration: 0.4
+          }}
 
 
+          className="
+            text-center
+          "
 
 
+        >
 
-<div
-className="
-grid
-md:grid-cols-2
-lg:grid-cols-3
-gap-8
-mt-12
-"
->
 
 
-{
+          <h2
 
-skillGroups.map((group)=>(
+            className="
+              text-4xl
+              font-bold
+              gradient-text
+            "
 
+          >
 
+            Technical Skills
 
-<div
 
+          </h2>
 
-key={group.title}
 
 
-className="
-bg-white
-p-7
-rounded-2xl
-border
-border-gray-100
-shadow-sm
 
-hover:-translate-y-2
-hover:shadow-xl
+          <p
 
-transition-transform
-duration-200
+            className="
+              mt-4
+              text-gray-500
+              text-lg
+            "
 
-will-change-transform
-"
+          >
 
->
+            Technologies and tools I work with
 
 
-{/* ICON */}
+          </p>
 
 
 
-<div
+        </motion.div>
 
-className="
-w-12
-h-12
-flex
-items-center
-justify-center
-rounded-xl
 
-bg-blue-100
-text-blue-600
 
-text-2xl
-mb-5
 
-hover:bg-blue-600
-hover:text-white
 
-transition-colors
-duration-200
-"
 
->
 
-{group.icon}
 
-</div>
 
+        {/* Skill Cards */}
 
 
 
+        <div
 
+          className="
+            grid
+            md:grid-cols-2
+            lg:grid-cols-3
+            gap-8
+            mt-12
+          "
 
+        >
 
 
-<h3
 
-className="
-text-xl
-font-semibold
-text-gray-900
+          {
 
-hover:text-blue-600
+            skillGroups.map((group, index) => (
 
-transition-colors
-duration-200
-"
 
->
 
-{group.title}
+              <motion.div
 
-</h3>
 
 
+                key={group.title}
 
 
 
+                initial={{
 
+                  opacity: 0,
 
+                  y: 40
 
-<div
+                }}
 
-className="
-flex
-flex-wrap
-gap-3
-mt-5
-"
 
->
 
+                whileInView={{
 
-{
 
-group.skills.map(skill=>(
+                  opacity: 1,
 
+                  y: 0
 
-<span
 
-key={skill}
+                }}
 
-className="
-px-4
-py-2
 
-bg-gray-100
 
-rounded-full
+                viewport={{
 
-text-sm
-text-gray-700
 
-hover:bg-blue-600
-hover:text-white
+                  once: true,
 
-cursor-default
+                  amount: 0.2
 
-transition-colors
-duration-200
-"
 
->
+                }}
 
 
-{skill}
 
+                transition={{
 
-</span>
 
+                  duration: 0.4,
 
-))
+                  delay: index * 0.1
+
+
+                }}
+
+
+
+                whileHover={{
+
+
+                  y: -12,
+
+                  scale: 1.03
+
+
+                }}
+
+
+
+                className="
+
+                  bg-white
+
+                  p-7
+
+                  rounded-2xl
+
+                  border
+
+                  border-gray-100
+
+                  shadow-sm
+
+                  group
+
+                  hover:shadow-2xl
+
+                  hover:shadow-blue-100
+
+                  transition-shadow
+
+                  duration-200
+
+                "
+
+
+              >
+
+
+
+
+
+
+
+                {/* Icon */}
+
+
+
+                <div
+
+
+                  className="
+
+                    w-12
+
+                    h-12
+
+                    flex
+
+                    items-center
+
+                    justify-center
+
+                    rounded-xl
+
+                    bg-blue-100
+
+                    text-blue-600
+
+                    text-2xl
+
+                    mb-5
+
+                    group-hover:bg-blue-600
+
+                    group-hover:text-white
+
+                    group-hover:rotate-6
+
+                    transition-all
+
+                    duration-200
+
+                  "
+
+
+                >
+
+
+                  {group.icon}
+
+
+                </div>
+
+
+
+
+
+
+
+
+
+
+                {/* Skill Title */}
+
+
+
+                <h3
+
+
+                  className="
+
+                    text-xl
+
+                    font-semibold
+
+                    text-gray-900
+
+                    group-hover:text-blue-600
+
+                    transition
+
+                  "
+
+
+                >
+
+
+                  {group.title}
+
+
+                </h3>
+
+
+
+
+
+
+
+
+
+                {/* Skill Tags */}
+
+
+
+                <div
+
+
+                  className="
+
+                    flex
+
+                    flex-wrap
+
+                    gap-3
+
+                    mt-5
+
+                  "
+
+
+                >
+
+
+
+                  {
+
+
+                    group.skills.map((skill) => (
+
+
+
+                      <motion.span
+
+
+
+                        key={skill}
+
+
+
+                        whileHover={{
+
+                          scale: 1.1
+
+                        }}
+
+
+
+                        className="
+
+                          px-4
+
+                          py-2
+
+                          bg-gray-100
+
+                          rounded-full
+
+                          text-sm
+
+                          text-gray-700
+
+                          hover:bg-blue-600
+
+                          hover:text-white
+
+                          cursor-default
+
+                          transition-colors
+
+                          duration-200
+
+                        "
+
+
+                      >
+
+
+                        {skill}
+
+
+                      </motion.span>
+
+
+
+                    ))
+
+
+
+                  }
+
+
+
+                </div>
+
+
+
+
+
+
+
+              </motion.div>
+
+
+
+            ))
+
+
+
+          }
+
+
+
+        </div>
+
+
+
+
+
+
+      </div>
+
+
+
+    </section>
+
+
+  );
 
 
 }
 
-
-
-</div>
-
-
-
-
-
-</div>
-
-
-
-))
-
-
-}
-
-
-
-</div>
-
-
-
-
-
-</div>
-
-
-</section>
-
-
-);
-
-
-}
 
 
 export default Skills;

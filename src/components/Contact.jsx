@@ -18,14 +18,14 @@ function Contact() {
 
     const form = useRef();
 
-    const [loading,setLoading] = useState(false);
+    const [loading, setLoading] = useState(false);
 
-    const [status,setStatus] = useState("");
-
-
+    const [status, setStatus] = useState("");
 
 
-    const sendEmail = (e)=>{
+
+
+    const sendEmail = (e) => {
 
         e.preventDefault();
 
@@ -39,38 +39,38 @@ function Contact() {
             "Ll5PRpBwenJErbzcC"
         )
 
-        .then(()=>{
+            .then(() => {
 
-            setStatus("success");
+                setStatus("success");
 
-            form.current.reset();
-
-
-            setTimeout(()=>{
-                setStatus("");
-            },4000);
+                form.current.reset();
 
 
-        })
+                setTimeout(() => {
+                    setStatus("");
+                }, 4000);
 
 
-        .catch(()=>{
-
-            setStatus("error");
+            })
 
 
-            setTimeout(()=>{
-                setStatus("");
-            },4000);
+            .catch(() => {
 
-        })
+                setStatus("error");
 
 
-        .finally(()=>{
+                setTimeout(() => {
+                    setStatus("");
+                }, 4000);
 
-            setLoading(false);
+            })
 
-        });
+
+            .finally(() => {
+
+                setLoading(false);
+
+            });
 
     };
 
@@ -78,72 +78,72 @@ function Contact() {
 
 
 
-return (
+    return (
 
-<section
-id="contact"
-className="py-24 bg-gray-50"
->
-
-
-<div className="container">
+        <section
+            id="contact"
+            className="py-24 bg-gray-50"
+        >
 
 
-{/* Heading */}
+            <div className="container">
 
-<motion.div
 
-initial={{
-opacity:0,
-y:20
-}}
+                {/* Heading */}
 
-whileInView={{
-opacity:1,
-y:0
-}}
+                <motion.div
 
-viewport={{
-once:true
-}}
+                    initial={{
+                        opacity: 0,
+                        y: 20
+                    }}
 
-transition={{
-duration:0.4
-}}
+                    whileInView={{
+                        opacity: 1,
+                        y: 0
+                    }}
 
-className="text-center"
+                    viewport={{
+                        once: true
+                    }}
 
->
+                    transition={{
+                        duration: 0.4
+                    }}
 
-<h2 className="
+                    className="text-center"
+
+                >
+
+                    <h2 className="
 text-4xl
 font-bold
 text-gray-900
 ">
 
-Contact Me
+                        Contact Me
 
-</h2>
+                    </h2>
 
 
-<p className="
+                    <p className="
 mt-4
 text-gray-500
 ">
 
-Let's connect and build something amazing
+                        Let's connect and build something amazing
 
-</p>
-
-
-</motion.div>
+                    </p>
 
 
+                </motion.div>
 
 
 
 
-<div className="
+
+
+                <div className="
 mt-12
 grid
 md:grid-cols-2
@@ -156,38 +156,38 @@ gap-10
 
 
 
-{/* LEFT CARD */}
+                    {/* LEFT CARD */}
 
 
 
-<motion.div
+                    <motion.div
 
 
-initial={{
-opacity:0,
-x:-30
-}}
+                        initial={{
+                            opacity: 0,
+                            x: -30
+                        }}
 
-whileInView={{
-opacity:1,
-x:0
-}}
+                        whileInView={{
+                            opacity: 1,
+                            x: 0
+                        }}
 
-viewport={{
-once:true
-}}
+                        viewport={{
+                            once: true
+                        }}
 
-transition={{
-duration:0.5
-}}
-
-
-whileHover={{
-y:-5
-}}
+                        transition={{
+                            duration: 0.5
+                        }}
 
 
-className="
+                        whileHover={{
+                            y: -5
+                        }}
+
+
+                        className="
 bg-white
 p-8
 rounded-xl
@@ -198,123 +198,123 @@ duration-200
 "
 
 
->
+                    >
 
 
 
-<h3 className="
+                        <h3 className="
 text-2xl
 font-bold
 text-gray-900
 ">
 
-Get In Touch
+                            Get In Touch
 
-</h3>
+                        </h3>
 
 
 
-<p className="
+                        <p className="
 mt-4
 text-gray-600
 leading-7
 ">
 
-I am interested in software development opportunities,
-internships, and collaborative projects.
+                            I am interested in software development opportunities,
+                            internships, and collaborative projects.
 
-</p>
-
-
+                        </p>
 
 
 
 
-<div className="
+
+
+                        <div className="
 mt-6
 space-y-4
 ">
 
 
-<a
-href="mailto:tharunhs1208@gmail.com"
-className="
+                            <a
+                                href="mailto:tharunhs1208@gmail.com"
+                                className="
 flex
 items-center
 gap-3
 hover:text-blue-600
 transition
 "
->
+                            >
 
-<FiMail className="text-blue-600"/>
+                                <FiMail className="text-blue-600" />
 
-tharunhs1208@gmail.com
+                                tharunhs1208@gmail.com
 
-</a>
-
-
+                            </a>
 
 
 
-<a
-href="https://github.com/Tharun1208"
-target="_blank"
-rel="noopener noreferrer"
-className="
+
+
+                            <a
+                                href="https://github.com/Tharun1208"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="
 flex
 items-center
 gap-3
 hover:text-blue-600
 transition
 "
->
+                            >
 
-<FiGithub className="text-blue-600"/>
+                                <FiGithub className="text-blue-600" />
 
-GitHub Profile
+                                GitHub Profile
 
-</a>
-
-
+                            </a>
 
 
 
-<a
-href="https://www.linkedin.com/in/tharun-h-s-8590062a7/"
-target="_blank"
-rel="noopener noreferrer"
-className="
+
+
+                            <a
+                                href="https://www.linkedin.com/in/tharun-h-s-8590062a7/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="
 flex
 items-center
 gap-3
 hover:text-blue-600
 transition
 "
->
+                            >
 
-<FiLinkedin className="text-blue-600"/>
+                                <FiLinkedin className="text-blue-600" />
 
-LinkedIn Profile
+                                LinkedIn Profile
 
-</a>
-
-
-</div>
+                            </a>
 
 
+                        </div>
 
 
 
 
 
-<a
 
-href="/resume.pdf"
 
-target="_blank"
+                        <a
 
-className="
+                            href="/resume.pdf"
+
+                            target="_blank"
+
+                            className="
 mt-8
 inline-flex
 items-center
@@ -328,20 +328,18 @@ hover:bg-blue-700
 transition
 "
 
->
+                        >
 
-<FiFileText/>
+                            <FiFileText />
 
-View Resume
-
-
-</a>
+                            View Resume
 
 
+                        </a>
 
-</motion.div>
 
 
+                    </motion.div>
 
 
 
@@ -349,39 +347,41 @@ View Resume
 
 
 
-{/* FORM CARD */}
+
+
+                    {/* FORM CARD */}
 
 
 
-<motion.div
+                    <motion.div
 
 
-initial={{
-opacity:0,
-x:30
-}}
+                        initial={{
+                            opacity: 0,
+                            x: 30
+                        }}
 
-whileInView={{
-opacity:1,
-x:0
-}}
+                        whileInView={{
+                            opacity: 1,
+                            x: 0
+                        }}
 
-viewport={{
-once:true
-}}
+                        viewport={{
+                            once: true
+                        }}
 
-transition={{
-duration:0.5
-}}
-
-
-whileHover={{
-y:-5
-}}
+                        transition={{
+                            duration: 0.5
+                        }}
 
 
+                        whileHover={{
+                            y: -5
+                        }}
 
-className="
+
+
+                        className="
 bg-white
 p-8
 rounded-xl
@@ -392,43 +392,43 @@ duration-200
 "
 
 
->
+                    >
 
 
-<h3 className="
+                        <h3 className="
 text-2xl
 font-bold
 text-gray-900
 ">
 
-Send Message
+                            Send Message
 
-</h3>
-
-
+                        </h3>
 
 
 
 
-<AnimatePresence>
 
 
-{
-status==="success" &&
+                        <AnimatePresence>
 
-<motion.div
 
-initial={{
-opacity:0,
-scale:0.9
-}}
+                            {
+                                status === "success" &&
 
-animate={{
-opacity:1,
-scale:1
-}}
+                                <motion.div
 
-className="
+                                    initial={{
+                                        opacity: 0,
+                                        scale: 0.9
+                                    }}
+
+                                    animate={{
+                                        opacity: 1,
+                                        scale: 1
+                                    }}
+
+                                    className="
 mt-5
 p-4
 rounded-lg
@@ -439,31 +439,31 @@ gap-3
 items-center
 "
 
->
+                                >
 
-<FiCheckCircle/>
+                                    <FiCheckCircle />
 
-Message Sent Successfully!
+                                    Message Sent Successfully!
 
-</motion.div>
-
-
-}
+                                </motion.div>
 
 
+                            }
 
-</AnimatePresence>
 
 
+                        </AnimatePresence>
 
 
 
 
-{
-status==="error" &&
 
-<div
-className="
+
+                        {
+                            status === "error" &&
+
+                            <div
+                                className="
 mt-5
 p-4
 rounded-lg
@@ -473,44 +473,44 @@ flex
 gap-3
 items-center
 "
->
+                            >
 
-<FiAlertCircle/>
+                                <FiAlertCircle />
 
-Message Failed
+                                Message Failed
 
-</div>
+                            </div>
 
-}
-
-
+                        }
 
 
 
 
-<form
 
-ref={form}
 
-onSubmit={sendEmail}
+                        <form
 
-className="
+                            ref={form}
+
+                            onSubmit={sendEmail}
+
+                            className="
 mt-6
 space-y-4
 "
 
->
+                        >
 
 
-<input
+                            <input
 
-name="name"
+                                name="name"
 
-required
+                                required
 
-placeholder="Your Name"
+                                placeholder="Your Name"
 
-className="
+                                className="
 w-full
 border
 p-3
@@ -520,21 +520,21 @@ focus:ring-blue-500
 outline-none
 "
 
-/>
+                            />
 
 
 
-<input
+                            <input
 
-name="email"
+                                name="email"
 
-type="email"
+                                type="email"
 
-required
+                                required
 
-placeholder="Your Email"
+                                placeholder="Your Email"
 
-className="
+                                className="
 w-full
 border
 p-3
@@ -544,22 +544,22 @@ focus:ring-blue-500
 outline-none
 "
 
-/>
+                            />
 
 
 
 
-<textarea
+                            <textarea
 
-name="message"
+                                name="message"
 
-rows="5"
+                                rows="5"
 
-required
+                                required
 
-placeholder="Your Message"
+                                placeholder="Your Message"
 
-className="
+                                className="
 w-full
 border
 p-3
@@ -569,25 +569,25 @@ focus:ring-blue-500
 outline-none
 "
 
-/>
+                            />
 
 
 
 
 
-<motion.button
+                            <motion.button
 
-whileHover={{
-scale:1.05
-}}
+                                whileHover={{
+                                    scale: 1.05
+                                }}
 
-whileTap={{
-scale:0.95
-}}
+                                whileTap={{
+                                    scale: 0.95
+                                }}
 
-disabled={loading}
+                                disabled={loading}
 
-className="
+                                className="
 flex
 items-center
 gap-2
@@ -600,46 +600,46 @@ hover:bg-blue-700
 transition
 "
 
->
+                            >
 
 
-<FiSend/>
+                                <FiSend />
 
 
-{
-loading
-?
-"Sending..."
-:
-"Send Message"
-}
+                                {
+                                    loading
+                                        ?
+                                        "Sending..."
+                                        :
+                                        "Send Message"
+                                }
 
 
-</motion.button>
-
-
-
-</form>
+                            </motion.button>
 
 
 
-</motion.div>
+                        </form>
+
+
+
+                    </motion.div>
 
 
 
 
 
-</div>
+                </div>
 
 
 
-</div>
+            </div>
 
 
-</section>
+        </section>
 
 
-);
+    );
 
 
 }

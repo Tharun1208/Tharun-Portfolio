@@ -33,15 +33,15 @@ function Navbar() {
     <motion.nav
 
       initial={{
-        y:-100
+        y: -100
       }}
 
       animate={{
-        y:0
+        y: 0
       }}
 
       transition={{
-        duration:0.6
+        duration: 0.6
       }}
 
       className="
@@ -112,7 +112,7 @@ function Navbar() {
         >
 
           {
-            links.map((item,index)=>(
+            links.map((item, index) => (
 
               <a
 
@@ -231,12 +231,12 @@ function Navbar() {
           <motion.a
 
             whileHover={{
-              scale:1.08,
-              y:-3
+              scale: 1.08,
+              y: -3
             }}
 
             whileTap={{
-              scale:0.95
+              scale: 0.95
             }}
 
             href="/resume.pdf"
@@ -262,7 +262,7 @@ function Navbar() {
 
           >
 
-            <FiFileText/>
+            <FiFileText />
 
             Resume
 
@@ -292,16 +292,16 @@ function Navbar() {
             text-gray-700
           "
 
-          onClick={()=>setOpen(!open)}
+          onClick={() => setOpen(!open)}
 
         >
 
           {
             open
-            ?
-            <FiX size={28}/>
-            :
-            <FiMenu size={28}/>
+              ?
+              <FiX size={28} />
+              :
+              <FiMenu size={28} />
           }
 
 
@@ -326,31 +326,31 @@ function Navbar() {
       <AnimatePresence>
 
 
-      {
-        open && (
+        {
+          open && (
 
-          <motion.div
-
-
-            initial={{
-              opacity:0,
-              height:0
-            }}
+            <motion.div
 
 
-            animate={{
-              opacity:1,
-              height:"auto"
-            }}
+              initial={{
+                opacity: 0,
+                height: 0
+              }}
 
 
-            exit={{
-              opacity:0,
-              height:0
-            }}
+              animate={{
+                opacity: 1,
+                height: "auto"
+              }}
 
 
-            className="
+              exit={{
+                opacity: 0,
+                height: 0
+              }}
+
+
+              className="
               md:hidden
               bg-white
               border-t
@@ -361,23 +361,23 @@ function Navbar() {
               shadow-lg
             "
 
-          >
+            >
 
 
 
-            {
-              links.map((item,index)=>(
+              {
+                links.map((item, index) => (
 
 
-                <a
+                  <a
 
-                  key={index}
+                    key={index}
 
-                  href={item.link}
+                    href={item.link}
 
-                  onClick={()=>setOpen(false)}
+                    onClick={() => setOpen(false)}
 
-                  className="
+                    className="
                     block
                     text-gray-700
                     font-medium
@@ -386,63 +386,63 @@ function Navbar() {
                     transition
                   "
 
-                >
+                  >
 
-                  {item.name}
+                    {item.name}
 
-                </a>
-
-
-              ))
-            }
+                  </a>
 
 
+                ))
+              }
 
 
 
-            <div
-              className="
+
+
+              <div
+                className="
                 flex
                 gap-5
                 pt-4
               "
-            >
+              >
 
 
-              <FiGithub
-                size={24}
-                className="
+                <FiGithub
+                  size={24}
+                  className="
                   hover:text-blue-600
                   transition
                 "
-              />
+                />
 
 
-              <FiLinkedin
-                size={24}
-                className="
+                <FiLinkedin
+                  size={24}
+                  className="
                   hover:text-blue-600
                   transition
                 "
-              />
+                />
 
 
-            </div>
-
-
-
+              </div>
 
 
 
-            <a
 
-              href="/resume.pdf"
 
-              target="_blank"
 
-              rel="noopener noreferrer"
+              <a
 
-              className="
+                href="/resume.pdf"
+
+                target="_blank"
+
+                rel="noopener noreferrer"
+
+                className="
                 inline-flex
                 items-center
                 gap-2
@@ -454,22 +454,22 @@ function Navbar() {
                 shadow-lg
               "
 
-            >
+              >
 
-              <FiFileText/>
+                <FiFileText />
 
-              View Resume
-
-
-            </a>
+                View Resume
 
 
+              </a>
 
-          </motion.div>
 
 
-        )
-      }
+            </motion.div>
+
+
+          )
+        }
 
 
       </AnimatePresence>

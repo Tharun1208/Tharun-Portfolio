@@ -42,17 +42,17 @@ function Hero() {
                 <motion.div
 
                     initial={{
-                        opacity:0,
-                        x:-40
+                        opacity: 0,
+                        x: -40
                     }}
 
                     animate={{
-                        opacity:1,
-                        x:0
+                        opacity: 1,
+                        x: 0
                     }}
 
                     transition={{
-                        duration:0.5
+                        duration: 0.5
                     }}
 
                 >
@@ -216,7 +216,7 @@ function Hero() {
 
                         >
 
-                            <FiFileText size={20}/>
+                            <FiFileText size={20} />
 
                             View Resume
 
@@ -264,7 +264,7 @@ function Hero() {
 
                         >
 
-                            <FiGithub size={30}/>
+                            <FiGithub size={30} />
 
                         </a>
 
@@ -292,7 +292,7 @@ function Hero() {
 
                         >
 
-                            <FiLinkedin size={30}/>
+                            <FiLinkedin size={30} />
 
                         </a>
 
@@ -323,19 +323,19 @@ function Hero() {
 
 
                     initial={{
-                        opacity:0,
-                        x:40
+                        opacity: 0,
+                        x: 40
                     }}
 
 
                     animate={{
-                        opacity:1,
-                        x:0
+                        opacity: 1,
+                        x: 0
                     }}
 
 
                     transition={{
-                        duration:0.5
+                        duration: 0.5
                     }}
 
 
