@@ -375,7 +375,19 @@ function Navbar() {
 
                     href={item.link}
 
-                    onClick={() => setOpen(false)}
+                    onClick={(e) => {
+                      e.preventDefault();
+
+                      const section = document.querySelector(item.link);
+
+                      if (section) {
+                        section.scrollIntoView({
+                          behavior: "smooth"
+                        });
+                      }
+
+                      setOpen(false);
+                    }}
 
                     className="
                     block
