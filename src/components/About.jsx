@@ -1,402 +1,145 @@
 import { motion } from "framer-motion";
+import { FiCode, FiZap, FiLayout, FiCpu } from "react-icons/fi";
+import TiltCard from "./TiltCard";
+import BorderBeam from "./BorderBeam";
+import { playHoverSound } from "../utils/sound";
 
-import {
-  FiCode,
-  FiLayers,
-  FiBriefcase,
-  FiBookOpen,
-  FiFileText
-} from "react-icons/fi";
-
+const stats = [
+  { label: "ENGINEERING PROJECTS", value: "3+", icon: <FiCode className="text-indigo-400" /> },
+  { label: "ACADEMIC CGPA", value: "8.5", icon: <FiCpu className="text-amber-400" /> },
+  { label: "TECH SPECIALIZATION", value: "MERN", icon: <FiLayout className="text-emerald-400" /> },
+  { label: "REAL-TIME SYSTEMS", value: "100%", icon: <FiZap className="text-sky-400" /> },
+];
 
 function About() {
-
-
-  const stats = [
-
-    {
-      number:"10+",
-      title:"Technologies",
-      icon:<FiCode/>
-    },
-
-    {
-      number:"5+",
-      title:"Projects",
-      icon:<FiLayers/>
-    },
-
-    {
-      number:"1+",
-      title:"Internship",
-      icon:<FiBriefcase/>
-    },
-
-    {
-      number:"100%",
-      title:"Learning",
-      icon:<FiBookOpen/>
-    }
-
-  ];
-
-
-
   return (
-
-
-    <section
-      id="about"
-      className="py-24"
-    >
-
-
-      <div className="container">
-
-
-        <div
-          className="
-            grid
-            md:grid-cols-2
-            gap-12
-            items-center
-          "
+    <section id="about" className="py-28 relative overflow-hidden bg-[#07080c] spatial-grid">
+      <div className="container relative z-10">
+        {/* Section Header with In & Out scroll transition */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="mb-16 text-center max-w-2xl mx-auto"
         >
+          <p className="text-xs uppercase font-mono tracking-[0.25em] text-slate-400 font-semibold mb-2">
+            01 // THE PHILOSOPHY
+          </p>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Philosophy & <span className="gradient-title">Principles</span>
+          </h2>
+          <p className="mt-3 text-slate-400 text-sm">
+            Merging deep systems architecture with fluid spatial user interfaces
+          </p>
+        </motion.div>
 
-
-
-          {/* LEFT CONTENT */}
-
-
+        {/* 2-Column Showcase */}
+        <div className="grid lg:grid-cols-12 gap-8 items-stretch">
+          {/* LEFT: Spatial Profile & Identity Card */}
           <motion.div
-
-            initial={{
-              opacity:0,
-              x:-40
-            }}
-
-            whileInView={{
-              opacity:1,
-              x:0
-            }}
-
-            viewport={{
-              once:true,
-              amount:0.2
-            }}
-
-            transition={{
-              duration:0.5,
-              ease:"easeOut"
-            }}
-
+            initial={{ opacity: 0, x: -50, scale: 0.95 }}
+            whileInView={{ opacity: 1, x: 0, scale: 1 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="lg:col-span-5"
           >
-
-
-
-            <h2
-              className="
-                text-4xl
-                font-bold
-                gradient-text
-              "
-            >
-              About Me
-            </h2>
-
-
-
-            <div
-              className="
-                w-16
-                h-1
-                bg-blue-600
-                mt-4
-                rounded-full
-              "
-            />
-
-
-
-
-            <p
-              className="
-                mt-6
-                text-gray-600
-                leading-8
-                text-lg
-              "
-            >
-              I am a Computer Science Engineering student passionate about
-              Full Stack Development and building real-world software solutions.
-            </p>
-
-
-
-
-            <p
-              className="
-                mt-5
-                text-gray-600
-                leading-8
-                text-lg
-              "
-            >
-              My skills include developing modern web applications using
-              React, Node.js, Express.js, and MongoDB. I enjoy creating
-              responsive user interfaces, scalable backend systems, and
-              exploring AI-based technologies.
-            </p>
-
-
-
-
-            <p
-              className="
-                mt-5
-                text-gray-600
-                leading-8
-                text-lg
-              "
-            >
-              I continuously improve my technical skills through practical
-              projects, learning new technologies, and solving real-world
-              programming challenges.
-            </p>
-
-
-
-
-
-            <motion.a
-
-              whileHover={{
-                scale:1.04,
-                y:-2
-              }}
-
-              whileTap={{
-                scale:0.96
-              }}
-
-              href="/resume.pdf"
-
-              target="_blank"
-
-              rel="noopener noreferrer"
-
-              className="
-                inline-flex
-                items-center
-                gap-2
-                mt-8
-                bg-blue-600
-                text-white
-                px-7
-                py-3
-                rounded-xl
-                shadow-md
-                hover:bg-blue-700
-                transition
-                duration-200
-              "
-
-            >
-
-              <FiFileText/>
-
-              View Resume
-
-
-            </motion.a>
-
-
-
-          </motion.div>
-
-
-
-
-
-
-
-          {/* STATS */}
-
-
-
-          <motion.div
-
-
-            initial={{
-              opacity:0,
-              x:40
-            }}
-
-
-            whileInView={{
-              opacity:1,
-              x:0
-            }}
-
-
-            viewport={{
-              once:true,
-              amount:0.2
-            }}
-
-
-            transition={{
-              duration:0.5
-            }}
-
-
-            className="
-              grid
-              grid-cols-2
-              gap-5
-            "
-
-          >
-
-
-
-            {
-              stats.map((item,index)=>(
-
-
-
-                <motion.div
-
-                  key={index}
-
-
-                  initial={{
-                    opacity:0,
-                    y:20
-                  }}
-
-
-                  whileInView={{
-                    opacity:1,
-                    y:0
-                  }}
-
-
-                  viewport={{
-                    once:true
-                  }}
-
-
-                  transition={{
-                    duration:0.4,
-                    delay:index*0.08
-                  }}
-
-
-                  whileHover={{
-                    y:-8,
-                    scale:1.03
-                  }}
-
-
-                  className="
-                    bg-white
-                    p-6
-                    rounded-2xl
-                    text-center
-                    border
-                    border-gray-100
-                    shadow-sm
-                    hover:shadow-xl
-                    hover:shadow-blue-100
-                    transition-shadow
-                    duration-200
-                    will-change-transform
-                  "
-
-                >
-
-
-
-                  <div
-                    className="
-                      mx-auto
-                      w-12
-                      h-12
-                      flex
-                      items-center
-                      justify-center
-                      rounded-xl
-                      bg-blue-100
-                      text-blue-600
-                      text-2xl
-                      mb-4
-                    "
-                  >
-
-                    {item.icon}
-
+            <TiltCard max={4} lift={8} className="h-full">
+              <div className="luxury-card p-8 rounded-3xl h-full flex flex-col justify-between relative overflow-hidden group">
+                <BorderBeam size={180} duration={8} colorFrom="#6366f1" colorTo="#38bdf8" />
+
+                <div>
+                  <div className="relative h-64 rounded-2xl overflow-hidden bg-gradient-to-b from-indigo-950/40 to-slate-950 flex items-center justify-center border border-white/10">
+                    <img
+                      src="/profile.png"
+                      alt="Tharun H S Profile"
+                      className="h-full object-cover object-top filter brightness-95 group-hover:scale-105 transition-transform duration-700 select-none"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#07080c] via-transparent to-transparent opacity-80" />
                   </div>
 
+                  <div className="mt-6">
+                    <h3 className="text-2xl font-black text-white">Tharun H S</h3>
+                    <p className="text-xs font-mono text-indigo-400 mt-1">
+                      Full-Stack Engineer & Creative Developer
+                    </p>
+                  </div>
 
-
-
-
-                  <h3
-                    className="
-                      text-3xl
-                      font-bold
-                      text-blue-600
-                    "
-                  >
-
-                    {item.number}
-
-                  </h3>
-
-
-
-
-
-                  <p
-                    className="
-                      mt-2
-                      text-gray-600
-                    "
-                  >
-
-                    {item.title}
-
+                  <p className="mt-4 text-slate-300 text-sm leading-relaxed font-normal">
+                    Driven by crafting high-reliability applications, low-latency client-server architectures, and intuitive digital interfaces that deliver measurable value.
                   </p>
+                </div>
 
-
-
-                </motion.div>
-
-
-              ))
-            }
-
-
-
+                <div className="mt-6 pt-5 border-t border-white/10 flex items-center justify-between text-xs font-mono text-slate-400">
+                  <span>Based in Bengaluru, India</span>
+                  <span className="text-emerald-400 flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 beacon-live" />
+                    Open to Work
+                  </span>
+                </div>
+              </div>
+            </TiltCard>
           </motion.div>
 
+          {/* RIGHT: Philosophy Manifesto & Metric Stat Cards */}
+          <div className="lg:col-span-7 flex flex-col justify-between gap-6">
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: false, amount: 0.2 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
+              <TiltCard max={3} lift={6}>
+                <div className="luxury-card p-8 rounded-3xl">
+                  <h3 className="text-xl font-bold text-white mb-3">
+                    Architectural Mindset
+                  </h3>
+                  <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+                    I specialize in full-cycle product engineering: from designing high-throughput REST APIs and WebSocket synchronization layers to engineering reactive, responsive frontends with React, Tailwind CSS, and Three.js.
+                  </p>
+                  <p className="mt-3 text-slate-400 text-sm leading-relaxed">
+                    Every line of code is structured for maintainability, performance optimization, and seamless user interaction across all viewport dimensions.
+                  </p>
+                </div>
+              </TiltCard>
+            </motion.div>
 
-
+            {/* 4 Metrics Grid */}
+            <div className="grid sm:grid-cols-2 gap-4">
+              {stats.map((stat, i) => (
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0, y: 35 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: false, amount: 0.25 }}
+                  transition={{ duration: 0.5, delay: i * 0.08, ease: "easeOut" }}
+                >
+                  <TiltCard max={4} lift={6}>
+                    <div
+                      onMouseEnter={playHoverSound}
+                      className="luxury-card p-6 rounded-3xl flex items-center gap-4"
+                    >
+                      <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-xl flex-shrink-0">
+                        {stat.icon}
+                      </div>
+                      <div>
+                        <div className="text-2xl sm:text-3xl font-black text-white font-mono">
+                          {stat.value}
+                        </div>
+                        <div className="text-[10px] font-mono text-slate-400 tracking-wider mt-0.5">
+                          {stat.label}
+                        </div>
+                      </div>
+                    </div>
+                  </TiltCard>
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
-
-
-
       </div>
-
-
     </section>
-
-
   );
-
-
 }
-
 
 export default About;

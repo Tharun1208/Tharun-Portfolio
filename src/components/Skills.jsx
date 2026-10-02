@@ -1,564 +1,108 @@
-import {
-  FiCode,
-  FiServer,
-  FiDatabase,
-  FiCpu,
-  FiTool,
-  FiZap
-} from "react-icons/fi";
-
+import { FiCode, FiServer, FiDatabase, FiCpu, FiTool, FiZap } from "react-icons/fi";
 import { motion } from "framer-motion";
+import TiltCard from "./TiltCard";
+import { playHoverSound } from "../utils/sound";
 
-
-
-const skillGroups = [
-
+const skillCategories = [
   {
-    title: "Frontend Development",
-
-    icon: <FiCode />,
-
-    skills: [
-      "HTML5",
-      "CSS3",
-      "JavaScript",
-      "React.js",
-      "Tailwind CSS"
-    ]
+    category: "Frontend Development",
+    icon: <FiCode className="text-indigo-400" />,
+    skills: ["React.js", "JavaScript (ES6+)", "Three.js", "Tailwind CSS", "HTML5", "CSS3"],
   },
-
-
   {
-    title: "Backend Development",
-
-    icon: <FiServer />,
-
-    skills: [
-      "Node.js",
-      "Express.js",
-      "REST API",
-      "JWT Authentication"
-    ]
+    category: "Backend & Systems",
+    icon: <FiServer className="text-purple-400" />,
+    skills: ["Node.js", "Express.js", "RESTful APIs", "JWT Authentication", "MVC Architecture"],
   },
-
-
   {
-    title: "Database",
-
-    icon: <FiDatabase />,
-
-    skills: [
-      "MongoDB",
-      "MySQL"
-    ]
+    category: "Database & Storage",
+    icon: <FiDatabase className="text-emerald-400" />,
+    skills: ["MongoDB", "MySQL", "MongoDB Atlas", "Mongoose ORM"],
   },
-
-
   {
-    title: "Programming Languages",
-
-    icon: <FiCpu />,
-
-    skills: [
-      "Java",
-      "Python",
-      "JavaScript"
-    ]
+    category: "Programming Languages",
+    icon: <FiCpu className="text-sky-400" />,
+    skills: ["JavaScript", "Java", "Python", "SQL"],
   },
-
-
   {
-    title: "Tools & Technologies",
-
-    icon: <FiTool />,
-
-    skills: [
-      "Git",
-      "GitHub",
-      "VS Code",
-      "Postman",
-      "MongoDB Atlas"
-    ]
+    category: "Tools & DevOps",
+    icon: <FiTool className="text-amber-400" />,
+    skills: ["Git", "GitHub", "VS Code", "Postman", "Vite", "npm"],
   },
-
-
   {
-    title: "Other Skills",
-
-    icon: <FiZap />,
-
-    skills: [
-      "Data Structures",
-      "Problem Solving",
-      "API Integration",
-      "Responsive Design",
-      "AI Concepts"
-    ]
-  }
-
+    category: "Core Computer Science",
+    icon: <FiZap className="text-rose-400" />,
+    skills: ["Data Structures", "Algorithms", "Problem Solving", "Responsive Design", "AI Concepts"],
+  },
 ];
 
-
-
-
-
 function Skills() {
-
-
   return (
-
-
-    <section
-      id="skills"
-      className="
-        py-24
-        bg-gray-50
-      "
-    >
-
-
-
-      <div className="container">
-
-
-
-
-
-        {/* Heading */}
-
-
+    <section id="skills" className="py-28 relative overflow-hidden bg-[#08090d]">
+      <div className="container relative z-10">
+        {/* Section Header with In & Out scroll transition */}
         <motion.div
-
-
-          initial={{
-            opacity: 0,
-            y: -30
-          }}
-
-
-          whileInView={{
-            opacity: 1,
-            y: 0
-          }}
-
-
-          viewport={{
-            once: true
-          }}
-
-
-          transition={{
-            duration: 0.4
-          }}
-
-
-          className="
-            text-center
-          "
-
-
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="mb-14 text-center max-w-2xl mx-auto"
         >
-
-
-
-          <h2
-
-            className="
-              text-4xl
-              font-bold
-              gradient-text
-            "
-
-          >
-
-            Technical Skills
-
-
-          </h2>
-
-
-
-
-          <p
-
-            className="
-              mt-4
-              text-gray-500
-              text-lg
-            "
-
-          >
-
-            Technologies and tools I work with
-
-
+          <p className="text-xs uppercase font-mono tracking-[0.25em] text-slate-400 font-semibold mb-2">
+            02 // TECHNOLOGIES & TECH STACK
           </p>
-
-
-
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Technologies / <span className="gradient-title">Tech Stack</span>
+          </h2>
+          <p className="mt-3 text-slate-400 text-sm">
+            Comprehensive breakdown of my engineering toolchain and languages
+          </p>
         </motion.div>
 
-
-
-
-
-
-
-
-
-        {/* Skill Cards */}
-
-
-
-        <div
-
-          className="
-            grid
-            md:grid-cols-2
-            lg:grid-cols-3
-            gap-8
-            mt-12
-          "
-
-        >
-
-
-
-          {
-
-            skillGroups.map((group, index) => (
-
-
-
-              <motion.div
-
-
-
-                key={group.title}
-
-
-
-                initial={{
-
-                  opacity: 0,
-
-                  y: 40
-
-                }}
-
-
-
-                whileInView={{
-
-
-                  opacity: 1,
-
-                  y: 0
-
-
-                }}
-
-
-
-                viewport={{
-
-
-                  once: true,
-
-                  amount: 0.2
-
-
-                }}
-
-
-
-                transition={{
-
-
-                  duration: 0.4,
-
-                  delay: index * 0.1
-
-
-                }}
-
-
-
-                whileHover={{
-
-
-                  y: -12,
-
-                  scale: 1.03
-
-
-                }}
-
-
-
-                className="
-
-                  bg-white
-
-                  p-7
-
-                  rounded-2xl
-
-                  border
-
-                  border-gray-100
-
-                  shadow-sm
-
-                  group
-
-                  hover:shadow-2xl
-
-                  hover:shadow-blue-100
-
-                  transition-shadow
-
-                  duration-200
-
-                "
-
-
-              >
-
-
-
-
-
-
-
-                {/* Icon */}
-
-
-
+        {/* 6 Category Grid with In & Out scroll transition */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {skillCategories.map((group, index) => (
+            <motion.div
+              key={group.category}
+              initial={{ opacity: 0, y: 40, scale: 0.96 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: false, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: (index % 3) * 0.1, ease: "easeOut" }}
+            >
+              <TiltCard max={4} lift={6}>
                 <div
-
-
-                  className="
-
-                    w-12
-
-                    h-12
-
-                    flex
-
-                    items-center
-
-                    justify-center
-
-                    rounded-xl
-
-                    bg-blue-100
-
-                    text-blue-600
-
-                    text-2xl
-
-                    mb-5
-
-                    group-hover:bg-blue-600
-
-                    group-hover:text-white
-
-                    group-hover:rotate-6
-
-                    transition-all
-
-                    duration-200
-
-                  "
-
-
+                  onMouseEnter={playHoverSound}
+                  className="luxury-card p-7 rounded-3xl h-full flex flex-col justify-between"
                 >
+                  <div>
+                    <div className="flex items-center gap-3.5 mb-5">
+                      <div className="w-10 h-10 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-lg">
+                        {group.icon}
+                      </div>
+                      <h3 className="text-base font-bold text-white">
+                        {group.category}
+                      </h3>
+                    </div>
 
-
-                  {group.icon}
-
-
+                    <div className="flex flex-wrap gap-2">
+                      {group.skills.map((skill) => (
+                        <span
+                          key={skill}
+                          className="text-xs font-mono px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-slate-300 hover:border-indigo-400 hover:text-white transition"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
-
-
-
-
-
-
-
-
-
-
-                {/* Skill Title */}
-
-
-
-                <h3
-
-
-                  className="
-
-                    text-xl
-
-                    font-semibold
-
-                    text-gray-900
-
-                    group-hover:text-blue-600
-
-                    transition
-
-                  "
-
-
-                >
-
-
-                  {group.title}
-
-
-                </h3>
-
-
-
-
-
-
-
-
-
-                {/* Skill Tags */}
-
-
-
-                <div
-
-
-                  className="
-
-                    flex
-
-                    flex-wrap
-
-                    gap-3
-
-                    mt-5
-
-                  "
-
-
-                >
-
-
-
-                  {
-
-
-                    group.skills.map((skill) => (
-
-
-
-                      <motion.span
-
-
-
-                        key={skill}
-
-
-
-                        whileHover={{
-
-                          scale: 1.1
-
-                        }}
-
-
-
-                        className="
-
-                          px-4
-
-                          py-2
-
-                          bg-gray-100
-
-                          rounded-full
-
-                          text-sm
-
-                          text-gray-700
-
-                          hover:bg-blue-600
-
-                          hover:text-white
-
-                          cursor-default
-
-                          transition-colors
-
-                          duration-200
-
-                        "
-
-
-                      >
-
-
-                        {skill}
-
-
-                      </motion.span>
-
-
-
-                    ))
-
-
-
-                  }
-
-
-
-                </div>
-
-
-
-
-
-
-
-              </motion.div>
-
-
-
-            ))
-
-
-
-          }
-
-
-
+              </TiltCard>
+            </motion.div>
+          ))}
         </div>
-
-
-
-
-
-
       </div>
-
-
-
     </section>
-
-
   );
-
-
 }
-
-
 
 export default Skills;

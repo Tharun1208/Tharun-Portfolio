@@ -2,55 +2,31 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Skills from "./components/Skills";
-import Projects from "./components/Projects";
 import Experience from "./components/Experience";
-import Education from "./components/Education";
+import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
-
-function App(){
-
+function App() {
   return (
-
-    <>
-
+    <div className="relative min-h-screen bg-[#07080c] text-slate-100 selection:bg-indigo-600 selection:text-white">
+      {/* Top Floating Navigation */}
       <Navbar />
 
-
-      <main>
-
+      {/* Main Experience Stream */}
+      <main className="relative z-10">
         <Hero />
-
-
         <About />
-
-
         <Skills />
-
-
-        <Projects />
-
-
         <Experience />
-
-
-        <Education />
-
-
+        <Projects />
         <Contact />
-
       </main>
 
-
+      {/* Minimal Signature Footer */}
       <Footer />
-
-
-    </>
-
+    </div>
   );
-
 }
-
 
 export default App;

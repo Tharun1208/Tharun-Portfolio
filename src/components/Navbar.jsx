@@ -1,331 +1,135 @@
-import {
-  FiGithub,
-  FiLinkedin,
-  FiFileText,
-  FiMenu,
-  FiX,
-} from "react-icons/fi";
+import { useState, useEffect } from "react";
+import { FiMenu, FiX, FiFileText, FiTerminal } from "react-icons/fi";
+import { playClickSound, playHoverSound } from "../utils/sound";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+const navLinks = [
+  { name: "HOME", href: "#hero" },
+  { name: "ABOUT", href: "#about" },
+  { name: "SKILLS", href: "#skills" },
+  { name: "ROADMAP", href: "#experience" },
+  { name: "PROJECTS", href: "#projects" },
+  { name: "CONTACT", href: "#contact" },
+];
 
 function Navbar() {
-  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const links = [
-    { name: "About", link: "#about" },
-    { name: "Skills", link: "#skills" },
-    { name: "Projects", link: "#projects" },
-    { name: "Experience", link: "#experience" },
-    { name: "Education", link: "#education" },
-    { name: "Contact", link: "#contact" },
-  ];
-
-  const handleNavClick = (e, target) => {
-    e.preventDefault();
-
-    setOpen(false);
-
-    const section = document.querySelector(target);
-
-    if (section) {
-      section.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 30);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6 }}
-      className="
-        fixed
-        top-0
-        w-full
-        z-50
-        bg-white/80
-        backdrop-blur-lg
-        border-b
-        border-gray-200
-        shadow-sm
-      "
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-[#07080c]/85 backdrop-blur-2xl border-b border-white/10 py-3 shadow-[0_10px_30px_rgba(0,0,0,0.8)]"
+          : "bg-transparent py-5"
+      }`}
     >
-      <div
-        className="
-          max-w-7xl
-          mx-auto
-          px-6
-          py-4
-          flex
-          justify-between
-          items-center
-        "
-      >
-        {/* Logo */}
+      <div className="container flex items-center justify-between">
+        {/* Brand Logo with Holographic Status */}
         <a
-          href="#"
-          onClick={(e) => handleNavClick(e, "body")}
-          className="
-            text-3xl
-            font-extrabold
-            bg-gradient-to-r
-            from-blue-600
-            to-purple-600
-            bg-clip-text
-            text-transparent
-            hover:scale-110
-            transition
-          "
+          href="#hero"
+          onClick={playClickSound}
+          onMouseEnter={playHoverSound}
+          className="flex items-center gap-3 text-white font-mono text-base font-bold tracking-wider group"
         >
-          Tharun.
+          <div className="w-8 h-8 rounded-xl bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-400 group-hover:scale-105 group-hover:border-indigo-400 transition">
+            <FiTerminal size={15} />
+          </div>
+          <span className="group-hover:text-indigo-300 transition">
+            Tharun <span className="text-indigo-400 font-black">.</span>
+          </span>
+          <span className="hidden sm:inline-flex items-center gap-1.5 ml-2 px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[10px] font-mono text-emerald-400 font-normal">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 beacon-live" />
+            AVAILABLE
+          </span>
         </a>
 
-        {/* Desktop Menu */}
-        <div className="hidden md:flex gap-8">
-          {links.map((item, index) => (
+        {/* Desktop Navigation Links */}
+        <nav className="hidden md:flex items-center gap-1 bg-white/[0.03] backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10 shadow-inner">
+          {navLinks.map((link) => (
             <a
-              key={index}
-              href={item.link}
-              onClick={(e) => handleNavClick(e, item.link)}
-              className="
-                relative
-                text-gray-700
-                font-medium
-                group
-                hover:text-blue-600
-                transition
-              "
+              key={link.name}
+              href={link.href}
+              onClick={playClickSound}
+              onMouseEnter={playHoverSound}
+              className="text-slate-400 hover:text-white px-4 py-1.5 rounded-full text-xs font-mono font-medium tracking-wider transition-all duration-200 hover:bg-white/10"
             >
-              {item.name}
-
-              <span
-                className="
-                  absolute
-                  left-0
-                  -bottom-1
-                  w-0
-                  h-[2px]
-                  bg-blue-600
-                  group-hover:w-full
-                  transition-all
-                  duration-300
-                "
-              />
+              {link.name}
             </a>
           ))}
-        </div>
+        </nav>
 
-        {/* Desktop Actions */}
-        <div className="hidden md:flex items-center gap-5">
+        {/* Right CTA Button: Resume */}
+        <div className="hidden md:flex items-center gap-3">
           <a
-            href="https://github.com/Tharun1208"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FiGithub
-              size={24}
-              className="
-                text-gray-700
-                hover:text-blue-600
-                hover:scale-125
-                transition-all
-              "
-            />
-          </a>
-
-          <a
-            href="https://www.linkedin.com/in/tharun-h-s-8590062a7/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FiLinkedin
-              size={24}
-              className="
-                text-gray-700
-                hover:text-blue-600
-                hover:scale-125
-                transition-all
-              "
-            />
-          </a>
-
-          <motion.a
-            whileHover={{
-              scale: 1.08,
-              y: -3,
-            }}
-            whileTap={{
-              scale: 0.95,
-            }}
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="
-              flex
-              items-center
-              gap-2
-              bg-blue-600
-              text-white
-              px-5
-              py-2.5
-              rounded-full
-              shadow-lg
-              shadow-blue-200
-              hover:bg-blue-700
-              transition
-            "
+            onClick={playClickSound}
+            onMouseEnter={playHoverSound}
+            className="flex items-center gap-2 bg-gradient-to-r from-indigo-500/10 to-sky-500/10 hover:from-indigo-500 hover:to-sky-500 text-slate-200 hover:text-white border border-indigo-500/30 text-xs font-mono font-semibold px-4 py-2 rounded-full transition-all duration-300 shadow-sm hover:shadow-[0_0_20px_rgba(99,102,241,0.5)] hover:scale-105"
           >
-            <FiFileText />
-            Resume
-          </motion.a>
+            <FiFileText size={14} />
+            <span>Resume</span>
+          </a>
         </div>
 
-        {/* Mobile Button */}
+        {/* Mobile Menu Toggle */}
         <button
-          className="md:hidden text-gray-700"
-          onClick={() => setOpen(!open)}
+          onClick={() => {
+            playClickSound();
+            setMobileMenuOpen(!mobileMenuOpen);
+          }}
+          className="md:hidden text-slate-300 hover:text-white p-2 rounded-xl bg-white/5 border border-white/10 focus:outline-none"
+          aria-label="Toggle navigation menu"
         >
-          {open ? <FiX size={28} /> : <FiMenu size={28} />}
+          {mobileMenuOpen ? <FiX size={20} /> : <FiMenu size={20} />}
         </button>
       </div>
 
-      <AnimatePresence>
-                {open && (
-          <motion.div
-            initial={{
-              opacity: 0,
-              height: 0,
-            }}
-            animate={{
-              opacity: 1,
-              height: "auto",
-            }}
-            exit={{
-              opacity: 0,
-              height: 0,
-            }}
-            transition={{
-              duration: 0.3,
-            }}
-            className="
-              md:hidden
-              bg-white
-              border-t
-              border-gray-200
-              px-6
-              py-6
-              space-y-5
-              shadow-lg
-            "
-
-            >
-
-
-
-              {
-                links.map((item, index) => (
-
-
-                  <a
-
-                    key={index}
-
-                    href={item.link}
-
-                    onClick={() => setOpen(false)}
-
-                    className="
-                    block
-                    text-gray-700
-                    font-medium
-                    hover:text-blue-600
-                    hover:translate-x-2
-                    transition
-                  "
-
-                  >
-
-                    {item.name}
-
-                  </a>
-
-
-                ))
-              }
-
-
-
-
-
-            <div
-              className="
-                flex
-                gap-5
-                pt-4
-              "
-            >
+      {/* Mobile Menu Dropdown */}
+      {mobileMenuOpen && (
+        <div className="md:hidden bg-[#07080c]/95 backdrop-blur-2xl border-b border-white/10 px-6 py-6 space-y-4">
+          <nav className="flex flex-col space-y-3">
+            {navLinks.map((link) => (
               <a
-                href="https://github.com/Tharun1208"
-                target="_blank"
-                rel="noopener noreferrer"
+                key={link.name}
+                href={link.href}
+                onClick={() => {
+                  playClickSound();
+                  setMobileMenuOpen(false);
+                }}
+                className="text-slate-300 hover:text-white text-sm font-mono tracking-wider transition py-2"
               >
-                <FiGithub
-                  size={24}
-                  className="
-                    text-gray-700
-                    hover:text-blue-600
-                    hover:scale-110
-                    transition
-                  "
-                />
+                {link.name}
               </a>
-
-              <a
-                href="https://www.linkedin.com/in/tharun-h-s-8590062a7/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FiLinkedin
-                  size={24}
-                  className="
-                    text-gray-700
-                    hover:text-blue-600
-                    hover:scale-110
-                    transition
-                  "
-                />
-              </a>
-            </div>
-
+            ))}
+          </nav>
+          <div className="pt-4 border-t border-white/10">
             <a
               href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="
-                inline-flex
-                items-center
-                gap-2
-                bg-blue-600
-                text-white
-                px-5
-                py-3
-                rounded-full
-                shadow-lg
-                shadow-blue-200
-                hover:bg-blue-700
-                transition
-              "
+              onClick={() => {
+                playClickSound();
+                setMobileMenuOpen(false);
+              }}
+              className="flex items-center justify-center gap-2 bg-white text-slate-900 font-mono text-xs font-semibold px-4 py-3 rounded-2xl w-full"
             >
               <FiFileText />
-              View Resume
+              <span>Download Resume</span>
             </a>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.nav>
+          </div>
+        </div>
+      )}
+    </header>
   );
 }
 

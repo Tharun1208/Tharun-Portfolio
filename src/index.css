@@ -1,73 +1,191 @@
 @import "tailwindcss";
 
+:root {
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+  --bg-dark: #07080c;
+}
 
 body {
-
-  background: #ffffff;
-
-  color: #0f172a;
-
-  font-family:
-    "Inter",
-    sans-serif;
-
+  background-color: #07080c;
+  color: #f1f5f9;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  selection-background-color: #6366f1;
+  selection-color: #ffffff;
 }
-
 
 html {
-
   scroll-behavior: smooth;
-
+  overflow-x: hidden;
+  background-color: #07080c;
 }
 
+/* Luxury Holographic Dark Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #07080c;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e2235;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6366f1;
+}
 
 .container {
-
-  max-width: 1200px;
-
+  max-width: 1280px;
   margin: auto;
-
   padding-left: 24px;
-
   padding-right: 24px;
-
 }
 
-
-.heading {
-
-  font-size: 42px;
-
-  font-weight: 700;
-
+/* Holographic Spatial Grid Background */
+.spatial-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
 }
 
-
-.blue-text {
-
-  color: #2563eb;
-
+.spatial-grid-perspective {
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 80%);
 }
 
-
-.card {
-
-  background: #f8fafc;
-
-  border: 1px solid #e2e8f0;
-
-  border-radius: 20px;
-
-  transition: .3s;
-
+/* Luxury Studio Spotlight Glow behind Hero Portrait */
+.hero-spotlight {
+  background: radial-gradient(
+    circle at 50% 45%,
+    rgba(99, 102, 241, 0.22) 0%,
+    rgba(56, 189, 248, 0.12) 35%,
+    rgba(245, 158, 11, 0.06) 60%,
+    transparent 78%
+  );
 }
 
+/* Massive Holographic Typography */
+.hero-title {
+  font-size: clamp(2.6rem, 6.2vw, 5.8rem);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
 
-.card:hover {
+.gradient-title {
+  background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 55%, #94a3b8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
 
+.gradient-cyan-purple {
+  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gradient-amber-rose {
+  background: linear-gradient(135deg, #fbbf24 0%, #f87171 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Holographic Glassmorphism Cards */
+.luxury-card {
+  position: relative;
+  background: rgba(13, 16, 26, 0.65);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 28px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.85),
+              inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.luxury-card:hover {
   transform: translateY(-5px);
+  border-color: rgba(99, 102, 241, 0.3);
+  box-shadow: 0 30px 65px -15px rgba(0, 0, 0, 0.95),
+              0 0 30px -10px rgba(99, 102, 241, 0.18),
+              inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
 
-  box-shadow:
-    0 20px 40px rgba(0, 0, 0, .08);
+/* Linear-style Border Beam Keyframes */
+@keyframes borderBeam {
+  0% {
+    offset-distance: 0%;
+  }
+  100% {
+    offset-distance: 100%;
+  }
+}
 
+/* Floating animation */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+}
+
+.animate-float {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: floatSlow 7s ease-in-out 2s infinite;
+}
+
+/* Orbiting Animation */
+@keyframes orbitSpin {
+  from {
+    transform: rotate(0deg) translateX(70px) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(70px) rotate(-360deg);
+  }
+}
+
+.animate-orbit {
+  animation: orbitSpin 14s linear infinite;
+}
+
+/* Pulse Beacon */
+@keyframes pulseBeacon {
+  0% {
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(52, 211, 153, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0);
+  }
+}
+
+.beacon-live {
+  animation: pulseBeacon 2s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
