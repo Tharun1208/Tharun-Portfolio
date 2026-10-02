@@ -43,7 +43,7 @@ function Navbar() {
             <FiTerminal size={15} />
           </div>
           <span className="group-hover:text-indigo-300 transition">
-            Tharun <span className="text-indigo-400 font-black">.</span>
+            Tharun H S <span className="text-indigo-400 font-black">.</span>
           </span>
           <span className="hidden sm:inline-flex items-center gap-1.5 ml-2 px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[10px] font-mono text-emerald-400 font-normal">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 beacon-live" />

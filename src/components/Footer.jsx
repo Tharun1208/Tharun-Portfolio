@@ -70,8 +70,8 @@ function Footer() {
 
         {/* Giant Display Typography */}
         <div className="mt-14 select-none pointer-events-none">
-          <h1 className="text-6xl sm:text-8xl md:text-9xl lg:text-[140px] font-black tracking-tighter text-white/[0.04] uppercase leading-none">
-            THARUN
+          <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-[120px] font-black tracking-tighter text-white/[0.04] uppercase leading-none">
+            THARUN H S
           </h1>
         </div>
 
